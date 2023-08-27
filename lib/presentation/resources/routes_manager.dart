@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mina_farid/presentation/forget_password/forget_password_view.dart';
-import 'package:mina_farid/presentation/login/login_view.dart';
 import 'package:mina_farid/presentation/main/main_view.dart';
-import 'package:mina_farid/presentation/on_boarding/on_boarding_view.dart';
-import 'package:mina_farid/presentation/register/register_view.dart';
 import 'package:mina_farid/presentation/resources/strings_manager.dart';
-import 'package:mina_farid/presentation/splash/spalsh_view.dart';
-import 'package:mina_farid/presentation/store_details/store_details_view.dart';
+import '../screens/forget_password/forget_password_view.dart';
+import '../screens/login/login_view.dart';
+import '../screens/on_boarding/on_boarding_view.dart';
+import '../screens/register/register_view.dart';
+import '../screens/splash/spalsh_view.dart';
+import '../screens/store_details/store_details_view.dart';
 
 class Routes {
 

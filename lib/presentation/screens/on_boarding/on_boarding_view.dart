@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:mina_farid/presentation/on_boarding/on_boardng_view_model.dart';
 import 'package:mina_farid/presentation/resources/assets_manger.dart';
 import 'package:mina_farid/presentation/resources/color_manager.dart';
 import 'package:mina_farid/presentation/resources/strings_manager.dart';
 import 'package:mina_farid/presentation/resources/values_manager.dart';
 
-import '../../domain/model.dart';
-import '../resources/constants_manager.dart';
+import '../../../domain/model.dart';
+import '../../resources/constants_manager.dart';
+import 'on_boardng_view_model.dart';
+
 
 class OnBoardingView extends StatefulWidget {
   const OnBoardingView({Key? key}) : super(key: key);
