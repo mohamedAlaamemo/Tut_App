@@ -3,12 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:mina_farid/presentation/resources/routes_manager.dart';
 
 import '../presentation/resources/theme_manager.dart';
+
 class MyApp extends StatefulWidget {
   //named constructor
   const MyApp._internal();
+
   // single instance or singleton
-  static  const MyApp _instance=MyApp._internal();
-  factory MyApp()=>_instance;
+  static const MyApp _instance = MyApp._internal();
+
+  factory MyApp() => _instance;
+
   @override
   State<MyApp> createState() => _MyAppState();
 }

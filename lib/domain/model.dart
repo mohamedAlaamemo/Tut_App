@@ -12,3 +12,28 @@ class OnboardingOutputViewModel{
    int lengthOfList;
   OnboardingOutputViewModel(this.onboardingObject,this.currentIndex,this.lengthOfList);
 }
+
+// Login Models
+class CustomerModel {
+  String id;
+  String name;
+  int numOfNotifications;
+
+  CustomerModel(this.id, this.name, this.numOfNotifications);
+}
+
+class ContactsModel {
+  String phone;
+  String email;
+  String link;
+
+  ContactsModel(this.phone, this.email, this.link);
+}
+
+class LoginModel {
+  CustomerModel? customer;
+  ContactsModel? contacts;
+
+  LoginModel(this.customer, this.contacts);
+}
+
