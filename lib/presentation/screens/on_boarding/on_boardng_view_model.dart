@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:mina_farid/presentation/base/base_view_model.dart';
 
-import '../../../domain/model.dart';
+import '../../../domain/model/model.dart';
 import '../../resources/assets_manger.dart';
 import '../../resources/strings_manager.dart';
 

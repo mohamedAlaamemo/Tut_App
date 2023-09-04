@@ -6,7 +6,7 @@ import 'package:mina_farid/presentation/resources/color_manager.dart';
 import 'package:mina_farid/presentation/resources/strings_manager.dart';
 import 'package:mina_farid/presentation/resources/values_manager.dart';
 
-import '../../../domain/model.dart';
+import '../../../domain/model/model.dart';
 import '../../resources/constants_manager.dart';
 import 'on_boardng_view_model.dart';
 
@@ -80,7 +80,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                       child: GestureDetector(
                         onTap: () {
                           _controller.animateToPage(_viewModel.goPrev(),  duration:  Duration(
-                              milliseconds: AppConstants.sliderAnimationTime),
+                              milliseconds: Constants.sliderAnimationTime),
                               curve: Curves.bounceInOut);
 
                         },
@@ -104,7 +104,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                       child: GestureDetector(
                         onTap: () {
                           _controller.animateToPage(_viewModel.goNext(),  duration:  Duration(
-                              milliseconds: AppConstants.sliderAnimationTime),
+                              milliseconds: Constants.sliderAnimationTime),
                               curve: Curves.bounceInOut);
                           print(snapshot.data?.currentIndex);
                         },

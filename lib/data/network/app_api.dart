@@ -5,7 +5,7 @@ import '../response/responses.dart';
 part 'app_api.g.dart';
 
 
-@RestApi(baseUrl: AppConstants.baseUrl)
+@RestApi(baseUrl: Constants.baseUrl)
 abstract class AppServiceClient {
 
   factory AppServiceClient(Dio dio, {required String baseUrl})=_AppServiceClient;
