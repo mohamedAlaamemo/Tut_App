@@ -26,7 +26,7 @@ class RepositoryImpl extends Repository {
         //add request to get data
         final response = await _remoteDataSource.login(loginRequest);
         // data success
-        if (response.status == 0) {
+        if (response.status == ApiInternalStatus.SUCCESS) {
           return Right(response.toDomain());
         } else {
           return Left(Failure(ApiInternalStatus.FAILURE,

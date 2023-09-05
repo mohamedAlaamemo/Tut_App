@@ -1,9 +1,5 @@
 abstract class BaseViewModel extends BaseViewModelOutput
-    implements BaseViewModelInput {
-
-
-
-}
+    implements BaseViewModelInput {}
 
 abstract class BaseViewModelInput {
   void start();
