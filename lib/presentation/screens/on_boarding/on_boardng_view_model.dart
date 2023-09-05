@@ -72,7 +72,7 @@ class OnboardingViewModel extends BaseViewModel
       _streamController.stream
           .map((onboardingOutputViewModel) => onboardingOutputViewModel);
   void _postData(){
-    inputViewModel.add(OnboardingOutputViewModel(_listItem[_currentIndex], _currentIndex, _listItem.length) );
+    inputViewModel.add((_listItem[_currentIndex], _currentIndex, _listItem.length) );
   }
 }
 
