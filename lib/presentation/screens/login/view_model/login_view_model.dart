@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:mina_farid/presentation/base/base_view_model.dart';
 
+import '../../../../domain/use_cases/login_usecase.dart';
 import '../../../common/freezed_data.dart';
 
 class LoginViewModel extends BaseViewModel
@@ -13,9 +14,9 @@ class LoginViewModel extends BaseViewModel
   final StreamController _checkDataStreamController =
       StreamController<void>.broadcast();
 
-  //final LoginUseCase _loginUseCase;
+  final LoginUseCase _loginUseCase;
 
-  //LoginViewModel(this._loginUseCase);
+  LoginViewModel(this._loginUseCase);
 
   var loginObject = LoginObject("", "");
 
@@ -50,9 +51,9 @@ class LoginViewModel extends BaseViewModel
 
   @override
   login() async {
-    // (await _loginUseCase.execute(
-    //         LoginUseCaseInput(loginObject.email, loginObject.password)))
-    //     .fold((failure) {}, (data) {});
+    (await _loginUseCase.execute(
+            LoginUseCaseInput(loginObject.email, loginObject.password)))
+        .fold((failure) {}, (data) {});
   }
 
   @override

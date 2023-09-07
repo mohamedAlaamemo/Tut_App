@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:mina_farid/app/di.dart';
 import 'package:mina_farid/presentation/resources/assets_manger.dart';
 import 'package:mina_farid/presentation/resources/color_manager.dart';
+import 'package:mina_farid/presentation/resources/constants_manager.dart';
 import 'package:mina_farid/presentation/resources/strings_manager.dart';
 import 'package:mina_farid/presentation/resources/values_manager.dart';
 import 'package:mina_farid/presentation/screens/login/view_model/login_view_model.dart';
@@ -15,7 +17,7 @@ class LoginView extends StatefulWidget {
 class _LoginViewState extends State<LoginView> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final LoginViewModel _viewModel = LoginViewModel();
+  final LoginViewModel _viewModel = instance<LoginViewModel>();
 
   @override
   void initState() {

@@ -1,5 +1,6 @@
 
 const String imagePath='assets/images';
+const String jsonPath='assets/json';
 class ImageAssets {
   static const String splashLogo='$imagePath/splash_logo.png';
   static const String onboardingLogo1='$imagePath/onboarding_logo1.png';
@@ -10,4 +11,11 @@ class ImageAssets {
   static const String solidCirlce='$imagePath/solid_circle_ic.svg';
   static const String arrowLeft='$imagePath/left_arrow_ic.svg';
   static const String arrowRight='$imagePath/right_arrow_ic.svg';
+}
+
+class JsonAssets {
+  static const String loading = "$jsonPath/loading.json";
+  static const String error = "$jsonPath/error.json";
+  static const String empty = "$jsonPath/empty.json";
+  static const String success = "$jsonPath/success.json";
 }
