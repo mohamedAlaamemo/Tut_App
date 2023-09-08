@@ -4,7 +4,12 @@ import 'package:mina_farid/data/network/requests.dart';
 import '../response/responses.dart';
 
 abstract class RemoteDataSource {
+  // login
   Future<LoginResponse> login(LoginRequest loginRequest);
+
+  // forgotPassword
+  Future<ForgotPasswordResponse> forgotPassword(
+      ForgotPasswordRequest forgotPasswordRequest);
 }
 
 class RemoteDataSourceImpl implements RemoteDataSource {
@@ -16,5 +21,11 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   Future<LoginResponse> login(LoginRequest loginRequest) async {
     return await _appServiceClient.login(
         loginRequest.email, loginRequest.password);
+  }
+
+  @override
+  Future<ForgotPasswordResponse> forgotPassword(
+      ForgotPasswordRequest forgotPasswordRequest) async {
+    return await _appServiceClient.forgotPassword(forgotPasswordRequest.email);
   }
 }

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:mina_farid/presentation/common/state_rerender/state_rerender.dart';
 

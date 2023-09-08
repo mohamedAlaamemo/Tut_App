@@ -37,3 +37,19 @@ class LoginModel {
   LoginModel(this.customer, this.contacts);
 }
 
+
+
+// forgotPassword model
+class DataForgotPasswordModel{
+  String id;
+  String email;
+  String password;
+  DataForgotPasswordModel(this.id,this.email,this.password);
+}
+
+class ForgotPasswordModel{
+  DataForgotPasswordModel? data;
+  ForgotPasswordModel(this.data);
+}
+
+

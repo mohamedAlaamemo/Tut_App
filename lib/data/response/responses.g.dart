@@ -64,3 +64,38 @@ Map<String, dynamic> _$LoginResponseToJson(LoginResponse instance) =>
       'customer': instance.customer,
       'contacts': instance.contacts,
     };
+
+DataForgotPasswordResponse _$DataForgotPasswordResponseFromJson(
+        Map<String, dynamic> json) =>
+    DataForgotPasswordResponse(
+      json['id'] as String?,
+      json['email'] as String?,
+      json['password'] as String?,
+    );
+
+Map<String, dynamic> _$DataForgotPasswordResponseToJson(
+        DataForgotPasswordResponse instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'email': instance.email,
+      'password': instance.password,
+    };
+
+ForgotPasswordResponse _$ForgotPasswordResponseFromJson(
+        Map<String, dynamic> json) =>
+    ForgotPasswordResponse(
+      json['data'] == null
+          ? null
+          : DataForgotPasswordResponse.fromJson(
+              json['data'] as Map<String, dynamic>),
+    )
+      ..status = json['status'] as int?
+      ..message = json['message'] as String?;
+
+Map<String, dynamic> _$ForgotPasswordResponseToJson(
+        ForgotPasswordResponse instance) =>
+    <String, dynamic>{
+      'status': instance.status,
+      'message': instance.message,
+      'data': instance.data,
+    };

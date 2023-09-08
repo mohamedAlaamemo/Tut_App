@@ -114,7 +114,7 @@ class StateRenderer extends StatelessWidget {
     return SizedBox(
         height: AppSize.s100,
         width: AppSize.s100,
-        child: Lottie.asset(animationName));
+        child: Lottie.asset(animationName,));
   }
 
   Widget _getMessage(String message) {
