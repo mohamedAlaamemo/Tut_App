@@ -16,7 +16,8 @@ class AppStrings{
   static const usernameError = "username_error";
   static const passwordError = "password_error";
   static const login = "login";
-  static const forgetPassword = "forgot_password";
+  static const forgetPassword = "forgot_password?";
+  static const resendAgain = "Didn’t recieve email ? Resesnd";
   static const registerText = "Not a member ? Sign up";
   static const loading = "loading";
   static const retryAgain = "retry_again";

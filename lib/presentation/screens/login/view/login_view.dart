@@ -4,6 +4,7 @@ import 'package:mina_farid/presentation/common/state_rerender/state_renderer_imp
 import 'package:mina_farid/presentation/resources/assets_manger.dart';
 import 'package:mina_farid/presentation/resources/color_manager.dart';
 import 'package:mina_farid/presentation/resources/constants_manager.dart';
+import 'package:mina_farid/presentation/resources/routes_manager.dart';
 import 'package:mina_farid/presentation/resources/strings_manager.dart';
 import 'package:mina_farid/presentation/resources/values_manager.dart';
 import 'package:mina_farid/presentation/screens/login/view_model/login_view_model.dart';
@@ -139,7 +140,9 @@ class _LoginViewState extends State<LoginView> {
                       padding: const EdgeInsets.only(
                           left: AppPadding.p28, right: AppPadding.p28),
                       child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushNamed(context, Routes.forgotPasswordRoute);
+                          },
                           style: TextButton.styleFrom(
                               foregroundColor: ColorManager.grey),
                           child: Text(

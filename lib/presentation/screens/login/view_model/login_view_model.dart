@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:mina_farid/data/network/failure.dart';
 import 'package:mina_farid/presentation/base/base_view_model.dart';
 import 'package:mina_farid/presentation/common/state_rerender/state_renderer_impl.dart';
 import 'package:mina_farid/presentation/common/state_rerender/state_rerender.dart';
@@ -11,11 +10,11 @@ import '../../../common/freezed_data.dart';
 class LoginViewModel extends BaseViewModel
     implements LoginViewModelInput, LoginViewModelOutput {
   final StreamController _userNameStreamController =
-  StreamController<String>.broadcast();
+      StreamController<String>.broadcast();
   final StreamController _passwordStreamController =
-  StreamController<String>.broadcast();
+      StreamController<String>.broadcast();
   final StreamController _checkDataStreamController =
-  StreamController<void>.broadcast();
+      StreamController<void>.broadcast();
 
   final LoginUseCase _loginUseCase;
 
@@ -56,13 +55,13 @@ class LoginViewModel extends BaseViewModel
   @override
   login() async {
     inputState.add(LoadingState(
-        stateRendererType: StateRendererType.popupLoadingState,
-    )
-    );
+      stateRendererType: StateRendererType.popupLoadingState,
+    ));
     (await _loginUseCase.execute(
-        LoginUseCaseInput(loginObject.email, loginObject.password)))
+            LoginUseCaseInput(loginObject.email, loginObject.password)))
         .fold((failure) {
-      inputState.add(ErrorState(StateRendererType.popupErrorState, failure.massage));
+      inputState
+          .add(ErrorState(StateRendererType.popupErrorState, failure.massage));
     }, (data) {
       inputState.add(ContentState());
     });
@@ -78,14 +77,12 @@ class LoginViewModel extends BaseViewModel
   Sink get allDataValidInput => _checkDataStreamController.sink;
 
   @override
-  Stream<bool> get passwordValid =>
-      _passwordStreamController.stream
-          .map((password) => isPasswordValid(password));
+  Stream<bool> get passwordValid => _passwordStreamController.stream
+      .map((password) => isPasswordValid(password));
 
   @override
-  Stream<bool> get userNameValid =>
-      _userNameStreamController.stream
-          .map((userName) => isUserNameValid(userName));
+  Stream<bool> get userNameValid => _userNameStreamController.stream
+      .map((userName) => isUserNameValid(userName));
 
   @override
   Stream<bool> get allDataValid =>
@@ -103,7 +100,7 @@ class LoginViewModel extends BaseViewModel
 
   bool isAllDataValid() {
     var bool = (isUserNameValid(loginObject.email) &&
-        isPasswordValid(loginObject.password))
+            isPasswordValid(loginObject.password))
         ? true
         : false;
     return bool;
