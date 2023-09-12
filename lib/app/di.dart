@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
-import 'package:internet_connection_checker/internet_connection_checker.dart';
+import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 import 'package:mina_farid/app/app_prefs.dart';
 import 'package:mina_farid/data/data_source/remote_data.dart';
 import 'package:mina_farid/data/network/app_api.dart';
@@ -39,7 +39,7 @@ Future<void> initAppModule() async {
 
   // network_info
   instance.registerLazySingleton<NetworkInfo>(
-      () => NetworkInfoImpl(InternetConnectionChecker()));
+      () => NetworkInfoImpl(InternetConnection()));
 
   //repository
   instance.registerLazySingleton<Repository>(

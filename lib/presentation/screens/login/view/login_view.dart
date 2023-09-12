@@ -35,20 +35,15 @@ class _LoginViewState extends State<LoginView> {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        FocusScope.of(context).unfocus();
-      },
-      child: Scaffold(
-        body: StreamBuilder<FlowState>(
-            stream: _viewModel.outputState,
-            builder: (context, snapshot) {
-              return snapshot.data?.getScreenWidget(context,showScaffold(),(){
-                _viewModel.login();
-              })??showScaffold();
-            }
-        ),
-      )
+    return Scaffold(
+      body: StreamBuilder<FlowState>(
+          stream: _viewModel.outputState,
+          builder: (context, snapshot) {
+            return snapshot.data?.getScreenWidget(context,showScaffold(),(){
+              _viewModel.login();
+            })??showScaffold();
+          }
+      ),
     );
   }
 
@@ -76,12 +71,13 @@ class _LoginViewState extends State<LoginView> {
                       return TextFormField(
                         controller: _usernameController,
                         keyboardType: TextInputType.emailAddress,
+                        onTapOutside: (event) => FocusScope.of(context).unfocus(),
                         decoration: InputDecoration(
-                          labelText: AppStrings.username,
-                          hintText: AppStrings.username,
+                          labelText: AppStrings.emailHint,
+                          hintText: AppStrings.emailHint,
                           errorText: (snapshot.data ?? true)
                               ? null
-                              : AppStrings.usernameError,
+                              : AppStrings.invalidEmail,
                         ),
                       );
                     }),
@@ -98,6 +94,7 @@ class _LoginViewState extends State<LoginView> {
                       return TextFormField(
                         controller: _passwordController,
                         keyboardType: TextInputType.emailAddress,
+                        onTapOutside: (event) => FocusScope.of(context).unfocus(),
                         decoration: InputDecoration(
                             labelText: AppStrings.password,
                             hintText: AppStrings.password,
@@ -156,7 +153,9 @@ class _LoginViewState extends State<LoginView> {
                       padding: const EdgeInsets.only(
                           left: AppPadding.p28, right: AppPadding.p28),
                       child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushNamed(context, Routes.registerRoute);
+                          },
                           style: TextButton.styleFrom(
                               foregroundColor: ColorManager.grey),
                           child: Text(

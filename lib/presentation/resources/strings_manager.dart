@@ -11,7 +11,7 @@ class AppStrings{
   static const onBoardingSubTitle4 = "on_boarding_desc4";
   static const skip = "skip";
 
-  static const username = "username_hint";
+  static const username = "UserName";
   static const password = "password_hint";
   static const usernameError = "username_error";
   static const passwordError = "password_error";
@@ -27,12 +27,12 @@ class AppStrings{
   static const String resetPassword = "reset_password";
   static const String userNameInvalid = "username_hint_message";
   static const String mobileNumberInvalid =
-      "mobile_number_hint_message";
+      "mobile_number_error";
   static const String passwordInvalid = "password_hint_message";
-  static const String alreadyHaveAccount = "already_have_account";
+  static const String alreadyHaveAccount = "Already have an account ? Login";
   static const register = "register";
   static const mobileNumber = "mobile_number_hint";
-  static const profilePicture = "upload_profile_picture";
+  static const profilePicture = "Profile Picture";
   static const photoGallery = "photo_from_galley";
   static const photoCamera = "photo_from_camera";
   static const home = "home";

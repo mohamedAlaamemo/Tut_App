@@ -2,6 +2,9 @@ import 'dart:async';
 
 import 'package:mina_farid/domain/use_cases/forgot_usecace.dart';
 import 'package:mina_farid/presentation/base/base_view_model.dart';
+import 'package:mina_farid/presentation/common/state_rerender/state_renderer_impl.dart';
+import 'package:mina_farid/presentation/common/state_rerender/state_rerender.dart';
+import 'package:mina_farid/presentation/resources/strings_manager.dart';
 
 class ForgotPasswordViewModel extends BaseViewModel
     implements ForgotPasswordViewModelInput, ForgotPasswordViewModelOutput {
@@ -15,7 +18,9 @@ class ForgotPasswordViewModel extends BaseViewModel
   late String _emailUserInput = "";
 
   @override
-  void start() {}
+  void start() {
+    inputState.add(ContentState());
+  }
 
   @override
   void dispose() {
@@ -27,17 +32,19 @@ class ForgotPasswordViewModel extends BaseViewModel
   setEmail(String email) {
     emailInput.add(email);
     _emailUserInput = email;
-    print('+++++++++++$_emailUserInput');
   }
 
   @override
   resetPassword() async {
+    inputState.add(
+        LoadingState(stateRendererType: StateRendererType.popupLoadingState));
     (await _forgotPasswordUseCase
             .execute(ForgotPasswordUseCaseInput(_emailUserInput)))
         .fold((failure) {
-
+      inputState
+          .add(ErrorState(StateRendererType.popupErrorState, failure.massage));
     }, (data) {
-
+      inputState.add(SuccessState(data.data!.email));
     });
   }
 

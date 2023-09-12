@@ -5,8 +5,8 @@ import 'package:mina_farid/presentation/main/main_view.dart';
 import 'package:mina_farid/presentation/resources/strings_manager.dart';
 import '../screens/forget_password/view/forget_password_view.dart';
 import '../screens/login/view/login_view.dart';
-import '../screens/on_boarding/on_boarding_view.dart';
-import '../screens/register/register_view.dart';
+import '../screens/on_boarding/view/on_boarding_view.dart';
+import '../screens/register/view/register_view.dart';
 import '../screens/splash/spalsh_view.dart';
 import '../screens/store_details/store_details_view.dart';
 
@@ -34,6 +34,7 @@ class RouteGenerator {
       case Routes.registerRoute:
         return MaterialPageRoute(builder: (_)=>const RegisterView());
       case Routes.forgotPasswordRoute:
+        initForgotPasswordModule();
         return MaterialPageRoute(builder: (_)=>const ForgetPasswordView());
       case Routes.onBoardingRoute:
         return MaterialPageRoute(builder: (_)=>const OnBoardingView());

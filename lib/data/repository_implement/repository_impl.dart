@@ -50,6 +50,7 @@ class RepositoryImpl extends Repository {
           if(response.status==ApiInternalStatus.SUCCESS)
             {
               return Right(response.toDomain());
+
             }
           else {
             return Left(Failure(ApiInternalStatus.FAILURE,

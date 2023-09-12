@@ -7,9 +7,9 @@ import 'package:mina_farid/presentation/resources/routes_manager.dart';
 import 'package:mina_farid/presentation/resources/strings_manager.dart';
 import 'package:mina_farid/presentation/resources/values_manager.dart';
 
-import '../../../domain/model/model.dart';
-import '../../resources/constants_manager.dart';
-import 'on_boardng_view_model.dart';
+import '../../../../domain/model/model.dart';
+import '../../../resources/constants_manager.dart';
+import '../view_model/on_boardng_view_model.dart';
 
 class OnBoardingView extends StatefulWidget {
   const OnBoardingView({Key? key}) : super(key: key);

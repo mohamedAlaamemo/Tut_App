@@ -148,3 +148,225 @@ abstract class _LoginObject implements LoginObject {
   _$$_LoginObjectCopyWith<_$_LoginObject> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+/// @nodoc
+mixin _$RegisterObject {
+  String get userName => throw _privateConstructorUsedError;
+  String get countryCode => throw _privateConstructorUsedError;
+  String get mobileNumber => throw _privateConstructorUsedError;
+  String get email => throw _privateConstructorUsedError;
+  String get password => throw _privateConstructorUsedError;
+  String get imagePath => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $RegisterObjectCopyWith<RegisterObject> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $RegisterObjectCopyWith<$Res> {
+  factory $RegisterObjectCopyWith(
+          RegisterObject value, $Res Function(RegisterObject) then) =
+      _$RegisterObjectCopyWithImpl<$Res, RegisterObject>;
+  @useResult
+  $Res call(
+      {String userName,
+      String countryCode,
+      String mobileNumber,
+      String email,
+      String password,
+      String imagePath});
+}
+
+/// @nodoc
+class _$RegisterObjectCopyWithImpl<$Res, $Val extends RegisterObject>
+    implements $RegisterObjectCopyWith<$Res> {
+  _$RegisterObjectCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? userName = null,
+    Object? countryCode = null,
+    Object? mobileNumber = null,
+    Object? email = null,
+    Object? password = null,
+    Object? imagePath = null,
+  }) {
+    return _then(_value.copyWith(
+      userName: null == userName
+          ? _value.userName
+          : userName // ignore: cast_nullable_to_non_nullable
+              as String,
+      countryCode: null == countryCode
+          ? _value.countryCode
+          : countryCode // ignore: cast_nullable_to_non_nullable
+              as String,
+      mobileNumber: null == mobileNumber
+          ? _value.mobileNumber
+          : mobileNumber // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      password: null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+      imagePath: null == imagePath
+          ? _value.imagePath
+          : imagePath // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_RegisterObjecCopyWith<$Res>
+    implements $RegisterObjectCopyWith<$Res> {
+  factory _$$_RegisterObjecCopyWith(
+          _$_RegisterObjec value, $Res Function(_$_RegisterObjec) then) =
+      __$$_RegisterObjecCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String userName,
+      String countryCode,
+      String mobileNumber,
+      String email,
+      String password,
+      String imagePath});
+}
+
+/// @nodoc
+class __$$_RegisterObjecCopyWithImpl<$Res>
+    extends _$RegisterObjectCopyWithImpl<$Res, _$_RegisterObjec>
+    implements _$$_RegisterObjecCopyWith<$Res> {
+  __$$_RegisterObjecCopyWithImpl(
+      _$_RegisterObjec _value, $Res Function(_$_RegisterObjec) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? userName = null,
+    Object? countryCode = null,
+    Object? mobileNumber = null,
+    Object? email = null,
+    Object? password = null,
+    Object? imagePath = null,
+  }) {
+    return _then(_$_RegisterObjec(
+      null == userName
+          ? _value.userName
+          : userName // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == countryCode
+          ? _value.countryCode
+          : countryCode // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == mobileNumber
+          ? _value.mobileNumber
+          : mobileNumber // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == imagePath
+          ? _value.imagePath
+          : imagePath // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_RegisterObjec implements _RegisterObjec {
+  _$_RegisterObjec(this.userName, this.countryCode, this.mobileNumber,
+      this.email, this.password, this.imagePath);
+
+  @override
+  final String userName;
+  @override
+  final String countryCode;
+  @override
+  final String mobileNumber;
+  @override
+  final String email;
+  @override
+  final String password;
+  @override
+  final String imagePath;
+
+  @override
+  String toString() {
+    return 'RegisterObject(userName: $userName, countryCode: $countryCode, mobileNumber: $mobileNumber, email: $email, password: $password, imagePath: $imagePath)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_RegisterObjec &&
+            (identical(other.userName, userName) ||
+                other.userName == userName) &&
+            (identical(other.countryCode, countryCode) ||
+                other.countryCode == countryCode) &&
+            (identical(other.mobileNumber, mobileNumber) ||
+                other.mobileNumber == mobileNumber) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.password, password) ||
+                other.password == password) &&
+            (identical(other.imagePath, imagePath) ||
+                other.imagePath == imagePath));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, userName, countryCode,
+      mobileNumber, email, password, imagePath);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_RegisterObjecCopyWith<_$_RegisterObjec> get copyWith =>
+      __$$_RegisterObjecCopyWithImpl<_$_RegisterObjec>(this, _$identity);
+}
+
+abstract class _RegisterObjec implements RegisterObject {
+  factory _RegisterObjec(
+      final String userName,
+      final String countryCode,
+      final String mobileNumber,
+      final String email,
+      final String password,
+      final String imagePath) = _$_RegisterObjec;
+
+  @override
+  String get userName;
+  @override
+  String get countryCode;
+  @override
+  String get mobileNumber;
+  @override
+  String get email;
+  @override
+  String get password;
+  @override
+  String get imagePath;
+  @override
+  @JsonKey(ignore: true)
+  _$$_RegisterObjecCopyWith<_$_RegisterObjec> get copyWith =>
+      throw _privateConstructorUsedError;
+}
