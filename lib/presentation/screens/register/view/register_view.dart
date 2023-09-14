@@ -4,6 +4,7 @@ import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:mina_farid/app/di.dart';
 import 'package:mina_farid/presentation/screens/register/view_model/register_view_model.dart';
 
 import '../../../resources/assets_manger.dart';
@@ -25,7 +26,7 @@ class _RegisterViewState extends State<RegisterView> {
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
   final ImagePicker imageProfile = ImagePicker();
-  final RegisterViewModel _viewModel = RegisterViewModel();
+  final RegisterViewModel _viewModel = instance<RegisterViewModel>();
 
   @override
   void initState() {
@@ -219,7 +220,9 @@ class _RegisterViewState extends State<RegisterView> {
                       stream: _viewModel.outputAllDataValid,
                       builder: (context, snapshot) {
                         return ElevatedButton(
-                          onPressed: (snapshot.data ==true) ? () {} : null,
+                          onPressed: (snapshot.data ==true) ? () {
+
+                          } : null,
                           child: const Text(
                             AppStrings.register,
                           ),
@@ -266,7 +269,7 @@ class _RegisterViewState extends State<RegisterView> {
                 ListTile(
                   onTap: () {
                     _selectPhotoCamera();
-                    setState(() {});
+                    Navigator.of(context).pop();
                   },
                   trailing: const Icon(Icons.arrow_forward_outlined),
                   title: const Text(AppStrings.photoCamera),

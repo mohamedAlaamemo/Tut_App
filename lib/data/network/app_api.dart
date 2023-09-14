@@ -15,4 +15,14 @@ abstract class AppServiceClient {
 
   @POST("/customers/forgotPassword")
   Future<ForgotPasswordResponse> forgotPassword(@Field('email') String email);
+
+  @POST("/customers/register")
+  Future<LoginResponse> register(
+    @Field('userName') String userName,
+    @Field('countryCode') String countryCode,
+    @Field('mobileNumber') String mobileNumber,
+    @Field('email') String email,
+    @Field('password') String password,
+    @Field('photo') String photo,
+  );
 }

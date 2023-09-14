@@ -1,8 +1,12 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:mina_farid/app/di.dart';
+import 'package:mina_farid/domain/use_cases/register_usecase.dart';
 import 'package:mina_farid/presentation/base/base_view_model.dart';
 import 'package:mina_farid/presentation/common/freezed_data.dart';
+import 'package:mina_farid/presentation/common/state_rerender/state_renderer_impl.dart';
+import 'package:mina_farid/presentation/common/state_rerender/state_rerender.dart';
 import 'package:mina_farid/presentation/resources/strings_manager.dart';
 
 class RegisterViewModel extends BaseViewModel
@@ -21,6 +25,10 @@ class RegisterViewModel extends BaseViewModel
       StreamController<void>.broadcast();
 
   RegisterObject registerObject = RegisterObject("", "+20", "", "", "", "");
+
+  final RegisterUseCase _registerUseCase;
+
+  RegisterViewModel(this._registerUseCase);
 
   @override
   void start() {
@@ -102,6 +110,27 @@ class RegisterViewModel extends BaseViewModel
   }
 
   @override
+  register() async {
+    inputState.add(LoadingState(stateRendererType: StateRendererType.popupLoadingState));
+
+    (await _registerUseCase.execute(RegisterUseCaseInput(
+            registerObject.userName,
+            registerObject.countryCode,
+            registerObject.mobileNumber,
+            registerObject.email,
+            registerObject.password,
+            "")))
+        .fold((failure) {
+      inputState.add(ErrorState(StateRendererType.popupErrorState, failure.massage));
+    }, (data) {
+
+          inputState.add(ContentState());
+
+
+    });
+  }
+
+  @override
   Sink get inputEmail => _emailStreamController.sink;
 
   @override
@@ -153,8 +182,8 @@ class RegisterViewModel extends BaseViewModel
       });
 
   @override
-  Stream<bool> get outputAllDataValid => _allDataValidStreamController.stream
-      .map((_) => _checkAllDataAreValid());
+  Stream<bool> get outputAllDataValid =>
+      _allDataValidStreamController.stream.map((_) => _checkAllDataAreValid());
 
   // private fun
 
@@ -187,6 +216,8 @@ abstract class RegisterViewModelOutput {
   setPassword(String password);
 
   setProfileImage(File image);
+
+  register();
 
   // input data
   Sink get inputUserName;

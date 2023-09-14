@@ -66,4 +66,27 @@ class RepositoryImpl extends Repository {
       }
 
   }
+
+  @override
+  Future<Either<Failure, LoginModel>> register(RegisterRequest registerRequest)async {
+
+
+    if (await _networkInfo.isConnected) {
+      try {
+        //add request to get data
+        final response = await _remoteDataSource.register(registerRequest);
+        // data success
+        if (response.status == ApiInternalStatus.SUCCESS) {
+          return Right(response.toDomain());
+        } else {
+          return Left(Failure(ApiInternalStatus.FAILURE,
+              response.message ?? ResponseMessage.DEFAULT));
+        }
+      } catch (error) {
+        return Left(ErrorHandler.handle(error).failure);
+      }
+    } else {
+      return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
+    }
+  }
 }

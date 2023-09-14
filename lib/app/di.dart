@@ -10,10 +10,12 @@ import 'package:mina_farid/data/repository_implement/repository_impl.dart';
 import 'package:mina_farid/domain/repository/repository.dart';
 import 'package:mina_farid/domain/use_cases/forgot_usecace.dart';
 import 'package:mina_farid/domain/use_cases/login_usecase.dart';
+import 'package:mina_farid/domain/use_cases/register_usecase.dart';
 import 'package:mina_farid/presentation/screens/forget_password/view_model/forgot_view_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../presentation/screens/login/view_model/login_view_model.dart';
+import '../presentation/screens/register/view_model/register_view_model.dart';
 
 final instance = GetIt.instance;
 
@@ -57,5 +59,11 @@ initForgotPasswordModule() {
   if (!GetIt.I.isRegistered<ForgotPasswordUseCase>()) {
     instance.registerFactory<ForgotPasswordUseCase>(() => ForgotPasswordUseCase(instance()));
     instance.registerFactory<ForgotPasswordViewModel>(() => ForgotPasswordViewModel(instance()));
+  }
+}
+initRegisterModule() {
+  if (!GetIt.I.isRegistered<RegisterUseCase>()) {
+    instance.registerFactory<RegisterUseCase>(() => RegisterUseCase(instance()));
+    instance.registerFactory<RegisterViewModel>(() => RegisterViewModel(instance()));
   }
 }
