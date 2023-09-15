@@ -1,13 +1,16 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:mina_farid/app/di.dart';
 import 'package:mina_farid/presentation/common/state_rerender/state_renderer_impl.dart';
 import 'package:mina_farid/presentation/resources/assets_manger.dart';
 import 'package:mina_farid/presentation/resources/color_manager.dart';
-import 'package:mina_farid/presentation/resources/constants_manager.dart';
 import 'package:mina_farid/presentation/resources/routes_manager.dart';
 import 'package:mina_farid/presentation/resources/strings_manager.dart';
 import 'package:mina_farid/presentation/resources/values_manager.dart';
 import 'package:mina_farid/presentation/screens/login/view_model/login_view_model.dart';
+
+import '../../../../app/app_prefs.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -20,6 +23,8 @@ class _LoginViewState extends State<LoginView> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final LoginViewModel _viewModel = instance<LoginViewModel>();
+  final AppPreferences _appPreferences = instance<AppPreferences>();
+
 
   @override
   void initState() {
@@ -44,9 +49,14 @@ class _LoginViewState extends State<LoginView> {
             })??showScaffold();
           }
       ),
+      floatingActionButton: InkWell(onTap:(){_changeLanguage();},child: Icon(Icons.ac_unit)),
     );
   }
-
+  _changeLanguage() {
+    // i will implement it later
+    _appPreferences.changeAppLanguage();
+    Phoenix.rebirth(context);
+  }
   Widget showScaffold() {
     return  SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
@@ -73,11 +83,11 @@ class _LoginViewState extends State<LoginView> {
                         keyboardType: TextInputType.emailAddress,
                         onTapOutside: (event) => FocusScope.of(context).unfocus(),
                         decoration: InputDecoration(
-                          labelText: AppStrings.emailHint,
-                          hintText: AppStrings.emailHint,
+                          labelText: AppStrings.emailHint.tr(),
+                          hintText: AppStrings.emailHint.tr(),
                           errorText: (snapshot.data ?? true)
                               ? null
-                              : AppStrings.invalidEmail,
+                              : AppStrings.invalidEmail.tr(),
                         ),
                       );
                     }),
@@ -96,11 +106,11 @@ class _LoginViewState extends State<LoginView> {
                         keyboardType: TextInputType.emailAddress,
                         onTapOutside: (event) => FocusScope.of(context).unfocus(),
                         decoration: InputDecoration(
-                            labelText: AppStrings.password,
-                            hintText: AppStrings.password,
+                            labelText: AppStrings.password.tr(),
+                            hintText: AppStrings.password.tr(),
                             errorText: (snapshot.data ?? true)
                                 ? null
-                                : AppStrings.passwordError),
+                                : AppStrings.passwordError.tr()),
                       );
                     }),
               ),
@@ -119,8 +129,8 @@ class _LoginViewState extends State<LoginView> {
                           onPressed: (snapshot.data ?? false) ? () {
                             _viewModel.login();
                           } : null,
-                          child: const Text(
-                            AppStrings.login,
+                          child:  Text(
+                            AppStrings.login.tr(),
                           ),
                         );
                       }
@@ -143,7 +153,7 @@ class _LoginViewState extends State<LoginView> {
                           style: TextButton.styleFrom(
                               foregroundColor: ColorManager.grey),
                           child: Text(
-                            AppStrings.forgetPassword,
+                            AppStrings.forgetPassword.tr(),
                             style: TextStyle(color: ColorManager.primary),
                           )),
                     ),
@@ -159,7 +169,7 @@ class _LoginViewState extends State<LoginView> {
                           style: TextButton.styleFrom(
                               foregroundColor: ColorManager.grey),
                           child: Text(
-                            AppStrings.registerText,
+                            AppStrings.registerText.tr(),
                             style: TextStyle(color: ColorManager.primary),
                           )),
                     ),

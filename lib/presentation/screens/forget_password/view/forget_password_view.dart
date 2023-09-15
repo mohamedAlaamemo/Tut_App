@@ -105,7 +105,7 @@ class _ForgetPasswordViewState extends State<ForgetPasswordView> {
             onPressed: () {},
             style: TextButton.styleFrom(foregroundColor: ColorManager.grey),
             child: Text(
-              AppStrings.resendAgain,
+              AppStrings.retryAgain,
               style: TextStyle(color: ColorManager.primary),
             ),
           ),

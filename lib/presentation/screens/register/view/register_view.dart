@@ -108,7 +108,6 @@ class _RegisterViewState extends State<RegisterView> {
                       // optional. aligns the flag and the Text left
                       alignLeft: true,
                       showFlag: true,
-
                     ),
                   ),
                   Expanded(
@@ -220,9 +219,7 @@ class _RegisterViewState extends State<RegisterView> {
                       stream: _viewModel.outputAllDataValid,
                       builder: (context, snapshot) {
                         return ElevatedButton(
-                          onPressed: (snapshot.data ==true) ? () {
-
-                          } : null,
+                          onPressed: (snapshot.data == true) ? () {} : null,
                           child: const Text(
                             AppStrings.register,
                           ),

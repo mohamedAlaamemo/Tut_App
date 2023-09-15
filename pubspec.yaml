@@ -51,6 +51,9 @@ dependencies:
   internet_connection_checker_plus: ^2.0.0
   go_router: ^10.1.2
   image_picker: ^1.0.4
+  rxdart: ^0.27.7
+  easy_localization: ^3.0.3
+  flutter_phoenix: ^1.1.1
 
 dev_dependencies:
   flutter_test:
@@ -80,6 +83,8 @@ flutter:
   assets:
     - assets/images/
     - assets/json/
+    - assets/translations/ar-SA.json
+    - assets/translations/en-US.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
